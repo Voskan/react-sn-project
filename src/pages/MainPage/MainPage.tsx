@@ -1,7 +1,129 @@
 import PostCard from "@/components/shared/cards/PostCard";
+import UserCard from "@/components/shared/cards/UserCard";
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const posts = [
+  {
+    id: "1",
+    title: "The best way to learn new technologies",
+    url: "/posts/1",
+    image: "https://picsum.photos/200/300",
+    cretedAt: "1 minute ago",
+    commentsCount: 0,
+    viewsCount: 0,
+    author: {
+      id: "1",
+      name: "John Doe",
+      image: "https://picsum.photos/200/300",
+    },
+    tags: [
+      {
+        id: "1",
+        name: "Vue.js",
+        url: "/tags/1",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+    upvotesCount: 0,
+  },
+  {
+    id: "2",
+    title: "New features in Vue 3.0",
+    url: "/posts/1",
+    image: "https://picsum.photos/200/300",
+    cretedAt: "2 days ago",
+    commentsCount: 3,
+    viewsCount: 100,
+    author: {
+      id: "1",
+      name: "John Doe",
+      image: "https://picsum.photos/200/300",
+    },
+    tags: [
+      {
+        id: "1",
+        name: "Vue.js",
+        url: "/tags/1",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+    upvotesCount: 1,
+  },
+];
+
+const users = [
+  {
+    id: "1",
+    name: "John Doe",
+    image: "https://picsum.photos/200/200",
+    tags: [
+      {
+        id: "1",
+        name: "Vue.js",
+        url: "/tags/1",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+    nickname: "johndoe",
+  },
+  {
+    id: "2",
+    name: "Jane Doe",
+    image: "https://picsum.photos/200/200",
+    tags: [
+      {
+        id: "1",
+        name: "Vue.js",
+        url: "/tags/1",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+    nickname: "janedoe",
+  },
+  {
+    id: "3",
+    name: "John Smith",
+    image: "https://picsum.photos/200/200",
+    tags: [
+      {
+        id: "1",
+        name: "Vue.js",
+        url: "/tags/1",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+    nickname: "johnsmith",
+  },
+  {
+    id: "4",
+    name: "Jane Smith",
+    image: "https://picsum.photos/200/200",
+    tags: [],
+    nickname: "janesmith",
+  },
+];
 
 const MainPage = () => {
   return (
@@ -45,122 +167,46 @@ const MainPage = () => {
       </div>
 
       <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
-        <PostCard
-          id="1"
-          title="Why I love Next.js"
-          url="/posts/1"
-          image="https://www.plusdev.net/_next/image?url=https%3A%2F%2Fplusdev-net.s3.eu-central-1.amazonaws.com%2Fbd1c1480201129be867adf88effb1458_nodejs-smart-contracts.jpg&w=640&q=60"
-          cretedAt="1 day ago"
-          commentsCount={10000000}
-          viewsCount={100}
-          author={{
-            id: "1",
-            name: "John Doe",
-            image:
-              "https://www.plusdev.net/_next/image?url=https%3A%2F%2Fimage-store-test-123.s3.us-east-2.amazonaws.com%2Fe005fc772e8484dd32c3cb9ca454749a_pulsdev.png&w=32&q=50",
-          }}
-          tags={[
-            {
-              id: "1",
-              name: "Next.js",
-              url: "/tags/1",
-            },
-            {
-              id: "2",
-              name: "Node.js",
-              url: "/tags/2",
-            },
-          ]}
-          upvotesCount={10}
-        />
-
-        <PostCard
-          id="1"
-          title="Why I love Next.js"
-          url="/posts/1"
-          image="https://www.plusdev.net/_next/image?url=https%3A%2F%2Fplusdev-net.s3.eu-central-1.amazonaws.com%2Fbd1c1480201129be867adf88effb1458_nodejs-smart-contracts.jpg&w=640&q=60"
-          cretedAt="1 day ago"
-          commentsCount={10}
-          viewsCount={10000}
-          author={{
-            id: "1",
-            name: "John Doe",
-            image:
-              "https://www.plusdev.net/_next/image?url=https%3A%2F%2Fimage-store-test-123.s3.us-east-2.amazonaws.com%2Fe005fc772e8484dd32c3cb9ca454749a_pulsdev.png&w=32&q=50",
-          }}
-          tags={[
-            {
-              id: "1",
-              name: "Next.js",
-              url: "/tags/1",
-            },
-            {
-              id: "2",
-              name: "Node.js",
-              url: "/tags/2",
-            },
-          ]}
-          upvotesCount={10}
-        />
-
-        <PostCard
-          id="1"
-          title="Why I love Next.js"
-          url="/posts/1"
-          image="https://www.plusdev.net/_next/image?url=https%3A%2F%2Fplusdev-net.s3.eu-central-1.amazonaws.com%2Fbd1c1480201129be867adf88effb1458_nodejs-smart-contracts.jpg&w=640&q=60"
-          cretedAt="1 day ago"
-          commentsCount={10}
-          viewsCount={100}
-          author={{
-            id: "1",
-            name: "John Doe",
-            image:
-              "https://www.plusdev.net/_next/image?url=https%3A%2F%2Fimage-store-test-123.s3.us-east-2.amazonaws.com%2Fe005fc772e8484dd32c3cb9ca454749a_pulsdev.png&w=32&q=50",
-          }}
-          tags={[
-            {
-              id: "1",
-              name: "Next.js",
-              url: "/tags/1",
-            },
-            {
-              id: "2",
-              name: "Node.js",
-              url: "/tags/2",
-            },
-          ]}
-          upvotesCount={10}
-        />
-
-        <PostCard
-          id="1"
-          title="Why I love Next.js"
-          url="/posts/1"
-          image="https://www.plusdev.net/_next/image?url=https%3A%2F%2Fplusdev-net.s3.eu-central-1.amazonaws.com%2Fbd1c1480201129be867adf88effb1458_nodejs-smart-contracts.jpg&w=640&q=60"
-          cretedAt="1 day ago"
-          commentsCount={10}
-          viewsCount={100}
-          author={{
-            id: "1",
-            name: "John Doe",
-            image:
-              "https://www.plusdev.net/_next/image?url=https%3A%2F%2Fimage-store-test-123.s3.us-east-2.amazonaws.com%2Fe005fc772e8484dd32c3cb9ca454749a_pulsdev.png&w=32&q=50",
-          }}
-          tags={[
-            {
-              id: "1",
-              name: "Next.js",
-              url: "/tags/1",
-            },
-            {
-              id: "2",
-              name: "Node.js",
-              url: "/tags/2",
-            },
-          ]}
-          upvotesCount={10}
-        />
+        {posts.map((post) => (
+          <PostCard
+            key={post.id}
+            id={post.id}
+            title={post.title}
+            url={post.url}
+            image={post.image}
+            cretedAt={post.cretedAt}
+            commentsCount={post.commentsCount}
+            viewsCount={post.viewsCount}
+            author={post.author}
+            tags={post.tags}
+            upvotesCount={post.upvotesCount}
+          />
+        ))}
       </div>
+
+      <section className="mt-20">
+        <div className="col-span-2">
+          <Link
+            to="/users"
+            className="flex justify-end gap-3 text-sm font-bold uppercase text-red-500 hover:text-red-400"
+          >
+            View all Author <LucideArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+
+        <div className="mt-6 flex flex-wrap justify-around gap-4">
+          {users.map((user) => (
+            <UserCard
+              key={user.id}
+              id={user.id}
+              name={user.name}
+              image={user.image}
+              tags={user.tags}
+              nickname={user.nickname}
+            />
+          ))}
+        </div>
+      </section>
     </>
   );
 };
