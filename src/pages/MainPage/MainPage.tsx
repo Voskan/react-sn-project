@@ -1,5 +1,5 @@
 import PostCard from "@/components/shared/cards/PostCard";
-import UserCard from "@/components/shared/cards/UserCard";
+import UserCard from "@/features/users/components/UserCard";
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";

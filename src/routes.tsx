@@ -5,8 +5,9 @@ import { Suspense } from "react";
 import PostPageAsync from "@/pages/PostPage/PostPage.async";
 import SignInAsync from "@/pages/SignIn/SignIn.async";
 import SignUpAsync from "@/pages/SignUp/SignUp.async";
+import UsersAsync from "@/pages/UsersPage/Users.async";
 
-const App = () => {
+const MainRoutes = () => {
   return (
     <main className="relative">
       <Suspense fallback={<div>Loading...</div>}>
@@ -17,10 +18,12 @@ const App = () => {
 
           <Route path="/sign-in" element={<SignInAsync />} />
           <Route path="/sign-up" element={<SignUpAsync />} />
+
+          <Route path="/community" element={<UsersAsync />} />
         </Routes>
       </Suspense>
     </main>
   );
 };
 
-export default App;
+export default MainRoutes;
