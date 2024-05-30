@@ -3,6 +3,10 @@ import UserCard from "@/features/users/components/UserCard";
 import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/store";
+import { logout } from "@/features/users/slices/authSlice";
+import { useMemo } from "react";
 
 const posts = [
   {
@@ -126,8 +130,34 @@ const users = [
 ];
 
 const MainPage = () => {
+  const user = useSelector((state: RootState) => state.auth.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch<any>(logout());
+  };
+
   return (
     <>
+      {user && (
+        <div className="flex gap-4">
+          <img
+            src={user.photoURL}
+            alt={user.displayName}
+            className="w-12 h-12 rounded-full"
+          />
+          <span className="text-zinc-900 dark:text-zinc-100">
+            Welcome back, {user.displayName}
+          </span>
+
+          <Button
+            onClick={handleLogout}
+            className="btn-secondary min-h-[46px] px-4 py-3 text-zinc-50"
+          >
+            Logout
+          </Button>
+        </div>
+      )}
       <div className="mt-4 flex flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="text-zinc-900 dark:text-zinc-100">
           <span className="md:h1-bold sm:h2-bold xs:h2-bold">

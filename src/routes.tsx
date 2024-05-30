@@ -6,13 +6,21 @@ import PostPageAsync from "@/pages/PostPage/PostPage.async";
 import SignInAsync from "@/pages/SignIn/SignIn.async";
 import SignUpAsync from "@/pages/SignUp/SignUp.async";
 import UsersAsync from "@/pages/UsersPage/Users.async";
+import MainLayout from "./layouts/MainLayout";
 
 const MainRoutes = () => {
   return (
     <main className="relative">
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<MainPageAsync />} />
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <MainPageAsync />
+              </MainLayout>
+            }
+          />
           <Route path="/posts" element={<PostPageAsync />} />
           <Route path="/about" element={<AboutPageAsync />} />
 
